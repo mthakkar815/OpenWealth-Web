@@ -47,7 +47,7 @@ const CryptoAssetCard = ({
   change,
   holdings,
 }: CryptoAssetCardProps) => {
-  const { t } = useTranslation();
+  const { i18n } = useTranslation();
 
   return (
     <Card tabIndex={0} aria-labelledby={`${name}-title`} role="article">
@@ -56,18 +56,18 @@ const CryptoAssetCard = ({
           {name} ({symbol.toUpperCase()})
         </h3>
         <p>
-          {t("holdings")}: {holdings} {symbol.toUpperCase()}
+          {i18n.t("holdings")}: {holdings} {symbol.toUpperCase()}
         </p>
       </Info>
       <Price $change={change} aria-live="polite">
-        <p aria-label={t("price")}>
+        <p aria-label={i18n.t("price")}>
           ${price.toFixed(2)}
         </p>
-        <p aria-label={`${t("change")}: ${change.toFixed(2)}%`}>
-          {t("change")}: {change.toFixed(2)}%
+        <p aria-label={`${i18n.t("change")}: ${change.toFixed(2)}%`}>
+          {i18n.t("change")}: {change.toFixed(2)}%
         </p>
-        <p aria-label={`${t("total_value")}: ${(holdings * price).toFixed(2)}`}>
-          {t("total_value")}: ${(holdings * price).toFixed(2)}
+        <p aria-label={`${i18n.t("total_value")}: ${(holdings * price).toFixed(2)}`}>
+          {i18n.t("total_value")}: ${(holdings * price).toFixed(2)}
         </p>
       </Price>
     </Card>

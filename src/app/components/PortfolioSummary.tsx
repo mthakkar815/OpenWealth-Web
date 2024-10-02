@@ -37,7 +37,7 @@ const SummaryContent = styled.div`
 
 // Main
 const PortfolioSummary = () => {
-  const { t } = useTranslation();
+  const { i18n } = useTranslation();
   const assets: Asset[] = useSelector(
     (state: RootState) => state.portfolioReducer.assets
   );
@@ -50,8 +50,8 @@ const PortfolioSummary = () => {
   return (
     <Summary tabIndex={0} role="region" aria-labelledby="portfolioSummaryTitle">
       <SummaryContent>
-        <h2 id="portfolioSummaryTitle">{t("portfolio_value")}</h2>
-        <p aria-live="polite" aria-label={`${t("total_value")}: $${totalValue.toFixed(2)}`}>
+        <h2 id="portfolioSummaryTitle">{i18n.t("portfolio_value")}</h2>
+        <p aria-live="polite" aria-label={`${i18n.t("total_value")}: $${totalValue.toFixed(2)}`}>
           ${totalValue.toFixed(2)}
         </p>
       </SummaryContent>
